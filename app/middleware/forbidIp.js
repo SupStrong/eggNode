@@ -1,7 +1,6 @@
 module.exports = (options, app) => {
   return async function forbidIp(ctx, next) {
 
-      console.log(options.forbidips,"xxx");
     // 需要被屏蔽的id
     const ids = options.forbidips;
     // 获取客户端的ip
