@@ -16,7 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1604634155214_5070';
 
   // add your middleware config here
-  config.middleware = [ 'forbidIp' ];
+  config.middleware = [ ];
   config.forbidIp = {
     forbidips: [
       '192.168.1.12',

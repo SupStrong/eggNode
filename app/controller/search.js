@@ -5,11 +5,9 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-    ctx.body = 'hi, egg';
-  }
-  async godds() {
-    const { ctx } = this;
-    ctx.body = '修喜喜';
+    ctx.body = {
+      name:`hell 111`,
+    }
   }
 }
 
