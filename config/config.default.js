@@ -28,6 +28,14 @@ module.exports = appInfo => {
       enable: false,
       jsonLimit: '10mb'
   }
+  config.sequelize = {
+    dialect: 'mysql',
+    host: '127.0.0.1',
+    port: 3306,
+    username: "roots",
+    password: "123456",
+    database: 'egg-sequelize-doc-default',
+  };
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
@@ -38,3 +46,10 @@ module.exports = appInfo => {
     ...userConfig,
   };
 };
+exports.cluster = {
+  listen: {
+    port: 7001,
+    hostname: '127.0.0.1', // 不建议设置 hostname 为 '0.0.0.0'，它将允许来自外部网络和来源的连接，请在知晓风险的情况下使用
+    // path: '/var/run/egg.sock',
+  }
+}
