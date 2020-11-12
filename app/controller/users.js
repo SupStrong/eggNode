@@ -9,17 +9,20 @@ function toInt(str) {
 
 class UserController extends Controller {
   async index() {
+    console.log(1);
     const ctx = this.ctx;
     const query = { limit: toInt(ctx.query.limit), offset: toInt(ctx.query.offset) };
     ctx.body = await ctx.model.User.findAll(query);
   }
 
   async show() {
+    console.log(2);
     const ctx = this.ctx;
     ctx.body = await ctx.model.User.findByPk(toInt(ctx.params.id));
   }
 
   async create() {
+    console.log(3);
     const ctx = this.ctx;
     const { name, age } = ctx.request.body;
     const user = await ctx.model.User.create({ name, age });
@@ -28,6 +31,7 @@ class UserController extends Controller {
   }
 
   async update() {
+    console.log(4);
     const ctx = this.ctx;
     const id = toInt(ctx.params.id);
     const user = await ctx.model.User.findByPk(id);
@@ -42,6 +46,8 @@ class UserController extends Controller {
   }
 
   async destroy() {
+    
+    console.log(5);
     const ctx = this.ctx;
     const id = toInt(ctx.params.id);
     const user = await ctx.model.User.findByPk(id);
@@ -49,7 +55,6 @@ class UserController extends Controller {
       ctx.status = 404;
       return;
     }
-
     await user.destroy();
     ctx.status = 200;
   }
