@@ -6,7 +6,7 @@ class HomeController extends Controller {
   async index() {
     const { ctx } = this;
     ctx.body = {
-      name:`hell 111`,
+      name:`${ctx.query.name}`,
     }
   }
 }

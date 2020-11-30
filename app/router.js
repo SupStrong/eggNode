@@ -13,5 +13,7 @@ module.exports = app => {
   router.get('/home/index', controller.home.godds);
   router.get('s', '/search', uppercase , controller.search.index)
   router.redirect('/index', '/home/index', 302);
-  router.resources('users', '/users', controller.users);
+  router.resources('users', `/users/`, controller.users);
+  router.get('/editor/upload' , controller.upload.index)
+
 };
