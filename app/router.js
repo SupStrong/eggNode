@@ -15,5 +15,6 @@ module.exports = app => {
   router.redirect('/index', '/home/index', 302);
   router.resources('users', `/users/`, controller.users);
   router.post('/editor/upload' , controller.upload.index)
+  router.post('/upload/video' , controller.upload.video)
 
 };
