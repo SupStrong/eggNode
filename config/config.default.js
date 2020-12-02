@@ -23,6 +23,19 @@ module.exports = appInfo => {
       '127.0.0.1',
     ]
   }
+  //解决跨域
+  config.security = {
+	  //就是这里
+    csrf: { 
+      enable: false,
+      ignoreJSON: true
+    },
+    domainWhiteList: ['*'],
+  }
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  }
   config.bodyParser = {
       // 默认1MB
       enable: false,
@@ -30,8 +43,8 @@ module.exports = appInfo => {
   }
   config.sequelize = {
     dialect: 'mysql',
-    host: '127.0.0.1',
-    port: 3306,
+    host: 'localhost',
+    port: 3307,
     username: "roots",
     password: "123456",
     database: 'egg-sequelize-doc-default',
@@ -53,3 +66,4 @@ exports.cluster = {
     // path: '/var/run/egg.sock',
   }
 }
+
