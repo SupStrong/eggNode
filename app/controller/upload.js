@@ -11,6 +11,11 @@ class HomeController extends Controller {
     ctx.status = 201;
     ctx.body = user;
   }
+  async video() {
+    const ctx = this.ctx;
+    ctx.status = 201;
+    ctx.body = {a:1};
+  }
 }
 
 module.exports = HomeController;

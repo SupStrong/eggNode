@@ -19,8 +19,6 @@ module.exports = appInfo => {
   config.middleware = [ ];
   config.forbidIp = {
     forbidips: [
-      '192.168.1.12',
-      '127.0.0.1',
     ]
   }
   config.bodyParser = {
