@@ -21,7 +21,6 @@ class ArticleController extends Controller {
   async create() {
     const ctx = this.ctx;
     const data = ctx.request.body;
-    console.log(data,"123");
     const article = await ctx.model.Article.create(data);
     ctx.status = 201;
     ctx.body = article;

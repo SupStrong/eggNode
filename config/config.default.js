@@ -22,8 +22,6 @@ module.exports = appInfo => {
     ]
   }
   config.bodyParser = {
-      // 默认1MB
-      enable: false,
       jsonLimit: '10mb'
   }
   config.sequelize = {
