@@ -19,8 +19,6 @@ module.exports = appInfo => {
   config.middleware = [ ];
   config.forbidIp = {
     forbidips: [
-      '192.168.1.12',
-      '127.0.0.1',
     ]
   }
   //解决跨域
@@ -37,8 +35,6 @@ module.exports = appInfo => {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   }
   config.bodyParser = {
-      // 默认1MB
-      enable: false,
       jsonLimit: '10mb'
   }
   config.sequelize = {
@@ -48,7 +44,22 @@ module.exports = appInfo => {
     username: "roots",
     password: "123456",
     database: 'egg-sequelize-doc-default',
-  };
+  }
+  config.security = {
+    csrf: {
+      enable: false,
+    }, // 必须加 否则： 403 Forbidden message: "missing csrf token"
+    // domainWhiteList: [ '*' ]
+　　},
+  config.cors = {
+      origin:'*',
+      allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
+  }
+  config.multipart = { 
+    fileSize: '50mb',
+    mode: 'file',
+    fileExtensions: ['.xls', '.mp4'], // 扩展几种上传的文件格式
+  }
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
