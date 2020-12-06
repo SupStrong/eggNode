@@ -31,7 +31,7 @@ class ArticleController extends Controller {
     const data = ctx.request.body;
     const article = await ctx.model.Article.create(data);
     ctx.status = 201;
-    ctx.body = article;
+    ctx.body = {data:article,status:1,message:'创建成功'};
   }
 
   async update() {
@@ -58,6 +58,7 @@ class ArticleController extends Controller {
     }
     await article.destroy();
     ctx.status = 200;
+    ctx.body = {status:1,'message':'删除成功'};
   }
 }
 
