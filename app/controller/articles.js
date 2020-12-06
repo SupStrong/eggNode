@@ -4,18 +4,26 @@ const Controller = require('egg').Controller;
 function toInt(str) {
   if (typeof str === 'number') return str;
   if (!str) return str;
-  return parseInt(str, 10) || 0;
+  return parseInt(str) || 0;
 }
 
 class ArticleController extends Controller {
   async index() {
     const ctx = this.ctx;
-    ctx.body = await ctx.model.Article.findAll();
+    const page = ctx.query.page;
+    const limit = ctx.query.limit;
+    const query = {
+      offset: toInt(limit) * toInt(page - 1),
+      limit: toInt(limit)
+    };
+    ctx.body = await ctx.model.Article.findAndCountAll({ ...query , raw: true});
   }
 
   async show() {
     const ctx = this.ctx;
-    ctx.body = await ctx.model.Article.findByPk(toInt(ctx.params.id));
+    console.log(ctx.params,"ctx.params");
+    const  data = await ctx.model.Article.findByPk(toInt(ctx.params.id));
+    ctx.body =  {status:1,message:'请求成功',data:data}
   }
 
   async create() {
@@ -35,9 +43,9 @@ class ArticleController extends Controller {
       return;
     }
 
-    const { name, age } = ctx.request.body;
-    await article.update({ name, age });
-    ctx.body = article;
+    // const { status } = ctx.request.body;
+    await article.update(ctx.request.body);
+    ctx.body = {status:1,'message':'更新成功'};
   }
 
   async destroy() {

@@ -5,11 +5,11 @@ module.exports = app => {
 
   const Article = app.model.define('articles', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-    title: INTEGER,
-    author:INTEGER,
-    group:INTEGER,
-    date1:INTEGER,
-    date2:INTEGER,
+    title: STRING,
+    author:STRING,
+    group:STRING,
+    date1:DATE,
+    date2:DATE,
     type:INTEGER,
     status:INTEGER,
     tags:INTEGER,
