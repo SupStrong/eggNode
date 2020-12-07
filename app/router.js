@@ -15,4 +15,6 @@ module.exports = app => {
   router.resources('articles', `/articles/`, controller.articles);
   router.get('/editor/upload' , controller.upload.index)
   router.post('/upload/video' , controller.upload.video)
+  
+  router.get('/user/list/:id' , controller.users.detail)
 };
