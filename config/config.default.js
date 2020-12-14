@@ -40,11 +40,30 @@ module.exports = appInfo => {
   config.sequelize = {
     dialect: 'mysql',
     host: 'localhost',
-    port: 3307,
+    port: 3306,
     username: "roots",
     password: "123456",
     database: 'egg-sequelize-doc-default',
-  }
+  },
+  config.mysql={
+    //database configuration 
+    client:{
+        //host 
+        host:'localhost',
+        //port 
+        port:3306,
+        //username 
+        user:'roots',
+        //password 
+        password:'123456',
+        //database 
+        database:'egg-sequelize-doc-default'
+    },
+    //load into app,default is open //加载到应用程序，默认为打开
+    app:true,
+    //load into agent,default is close //加载到代理中，默认值为“关闭”
+    agent:false,
+};
   config.security = {
     csrf: {
       enable: false,
