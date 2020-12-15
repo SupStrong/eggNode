@@ -1,6 +1,6 @@
 // app/controller/users.js
 const Controller = require('egg').Controller;
-
+const { time } = require('../extend/static');
 function toInt(str) {
   if (typeof str === 'number') return str;
   if (!str) return str;
@@ -21,7 +21,6 @@ class ArticleController extends Controller {
 
   async show() {
     const ctx = this.ctx;
-    console.log(ctx.params,"ctx.params");
     const  data = await ctx.model.Article.findByPk(toInt(ctx.params.id));
     ctx.body =  {status:1,message:'请求成功',data:data}
   }
@@ -29,6 +28,7 @@ class ArticleController extends Controller {
   async create() {
     const ctx = this.ctx;
     const data = ctx.request.body;
+    data.create_time = time();
     const article = await ctx.model.Article.create(data);
     ctx.status = 201;
     ctx.body = {data:article,status:1,message:'创建成功'};
@@ -42,8 +42,6 @@ class ArticleController extends Controller {
       ctx.status = 404;
       return;
     }
-
-    // const { status } = ctx.request.body;
     await article.update(ctx.request.body);
     ctx.body = {status:1,'message':'更新成功'};
   }

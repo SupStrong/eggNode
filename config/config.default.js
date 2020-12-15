@@ -44,6 +44,23 @@ module.exports = appInfo => {
     username: "roots",
     password: "123456",
     database: 'egg-sequelize-doc-default',
+    define: { // model的全局配置
+      timestamps: true, // 添加create,update,delete时间戳
+      paranoid: true, // 添加软删除
+      freezeTableName: true, // 防止修改表名为复数
+      underscored: false // 防止驼峰式字段被默认转为下划线
+    },
+    timezone: '+08:00', // 保存为本地时区
+    dialectOptions: {
+      dateStrings: true,
+      typeCast(field, next) {
+        // for reading from database
+        if (field.type === "DATETIME") {
+          return field.string();
+        }
+        return next();
+      }
+    }
   },
   config.mysql={
     //database configuration 

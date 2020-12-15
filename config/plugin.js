@@ -4,5 +4,4 @@
 exports.sequelize = {
   enable: true,
   package: 'egg-sequelize',
-  package:'egg-mysql',
 };
