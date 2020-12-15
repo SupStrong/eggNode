@@ -12,9 +12,9 @@ module.exports = {
       status:INTEGER,
       relation:STRING,
       textarea:TEXT,
-      browse:INTEGER,
-      praise:INTEGER,
-      collection:INTEGER,
+      browse:{type:INTEGER,defaultValue:0},
+      praise:{type:INTEGER,defaultValue:0},
+      collection:{type:INTEGER,defaultValue:0},
       create_time:DATE
     });
   },
