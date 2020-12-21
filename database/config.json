@@ -1,9 +1,9 @@
 {
   "development": {
     "dialect": "mysql",
-    "host": "localhost",
+    "host": "101.200.61.236",
     "port": 3306,
-    "username": "roots",
+    "username": "root",
     "password": "123456",
     "database": "egg-sequelize-doc-default"
   }
