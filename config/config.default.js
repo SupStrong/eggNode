@@ -39,9 +39,9 @@ module.exports = appInfo => {
   }
   config.sequelize = {
     dialect: 'mysql',
-    host: '101.200.61.236',
+    host: 'localhost',
     port: 3306,
-    username: "root",
+    username: "roots",
     password: "123456",
     database: 'egg-sequelize-doc-default',
     define: { // model的全局配置
@@ -66,11 +66,11 @@ module.exports = appInfo => {
     //database configuration 
     client:{
         //host 
-        host:'101.200.61.236',
+        host:'127.0.0.1',
         //port 
         port:3306,
         //username 
-        user:'root',
+        user:'roots',
         //password 
         password:'123456',
         //database 
