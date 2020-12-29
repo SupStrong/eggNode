@@ -11,7 +11,12 @@ module.exports = app => {
   // router.get('/home/index', controller.home.godds);
   // router.get('s', '/search' , controller.search.index)
   // router.redirect('/index', '/home/index', 302);
+  router.resources('animal_protect', `/animal_protect/`, controller.animalProtect);
   router.resources('articles', `/articles/`, controller.articles);
+  router.resources('banner', `/banner/`, controller.banner);
+  router.resources('animal_details', `/animal_details/`, controller.animalDetails);
+  router.resources('animal_circles', `/animal_circles/`, controller.animalCircles);
+  router.resources('feedback_list', `/feedback_list/`, controller.feedbackList);
   // router.get('/editor/upload' , controller.upload.index)
   // router.post('/upload/video' , controller.upload.video)
   

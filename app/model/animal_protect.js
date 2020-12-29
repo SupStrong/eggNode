@@ -3,7 +3,7 @@
 module.exports = app => {
   const { DATE, INTEGER, STRING , TEXT } = app.Sequelize;
 
-  const Animal_protect = app.model.define('animal_protect', {
+  const AnimalProtect = app.model.define('animal_protect', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     name: {type:STRING},
     address:{type:STRING},
@@ -17,5 +17,5 @@ module.exports = app => {
     freezeTableName: true
   });
 
-  return Animal_protect;
+  return AnimalProtect;
 };

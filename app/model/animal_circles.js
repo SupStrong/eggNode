@@ -3,7 +3,7 @@
 module.exports = app => {
   const { DATE, INTEGER, STRING , TEXT } = app.Sequelize;
 
-  const Animal_circles = app.model.define('animal_circles', {
+  const AnimalCircles = app.model.define('animal_circles', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     name: {type:STRING},
     title:{type:STRING}
@@ -15,5 +15,5 @@ module.exports = app => {
     freezeTableName: true
   });
 
-  return Animal_circles;
+  return AnimalCircles;
 };
