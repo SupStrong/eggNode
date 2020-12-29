@@ -5,14 +5,9 @@ module.exports = app => {
 
   const News_dynamic = app.model.define('news_dynamic', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-    a_id: INTEGER,
-    title:STRING,
-    author:STRING,
-    create_time:DATE,
-    details:STRING,
-    fabulous:{type:INTEGER,defaultValue:0},
-    read:{type:INTEGER,defaultValue:0},
-    source:STRING,
+    title: {type:INTEGER,defaultValue:0},
+    textarea: {type:STRING(1000)},
+    create_time:{type:DATE}
   },
   {
     underscored: false,
