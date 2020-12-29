@@ -3,7 +3,7 @@
 module.exports = app => {
   const { DATE, INTEGER, STRING , TEXT } = app.Sequelize;
 
-  const News_dynamic = app.model.define('news_dynamic', {
+  const NewsDynamic = app.model.define('news_dynamic', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     title: {type:INTEGER,defaultValue:0},
     textarea: {type:STRING(1000)},
@@ -16,5 +16,5 @@ module.exports = app => {
     freezeTableName: true
   });
 
-  return News_dynamic;
+  return NewsDynamic;
 };

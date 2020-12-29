@@ -7,7 +7,7 @@ function toInt(str) {
   return parseInt(str) || 0;
 }
 
-class feedbackListController extends Controller {
+class FeedbackListController extends Controller {
   async index() {
     const ctx = this.ctx;
     const page = ctx.query.page;
@@ -16,12 +16,12 @@ class feedbackListController extends Controller {
       offset: toInt(limit) * toInt(page - 1),
       limit: toInt(limit)
     };
-    ctx.body = await ctx.model.feedbackList.findAndCountAll({ ...query , raw: true});
+    ctx.body = await ctx.model.FeedbackList.findAndCountAll({ ...query , raw: true});
   }
 
   async show() {
     const ctx = this.ctx;
-    const  data = await ctx.model.feedbackList.findByPk(toInt(ctx.params.id));
+    const  data = await ctx.model.FeedbackList.findByPk(toInt(ctx.params.id));
     ctx.body =  {status:1,message:'请求成功',data:data}
   }
 
@@ -29,35 +29,35 @@ class feedbackListController extends Controller {
     const ctx = this.ctx;
     const data = ctx.request.body;
     data.create_time = time();
-    const feedbackList = await ctx.model.feedbackList.create(data);
+    const data = await ctx.model.FeedbackList.create(data);
     ctx.status = 201;
-    ctx.body = {data:feedbackList,status:1,message:'创建成功'};
+    ctx.body = {data:FeedbackList,status:1,message:'创建成功'};
   }
 
   async update() {
     const ctx = this.ctx;
     const id = toInt(ctx.params.id);
-    const feedbackList = await ctx.model.feedbackList.findByPk(id);
-    if (!feedbackList) {
+    const data = await ctx.model.FeedbackList.findByPk(id);
+    if (!FeedbackList) {
       ctx.status = 404;
       return;
     }
-    await feedbackList.update(ctx.request.body);
+    await FeedbackList.update(ctx.request.body);
     ctx.body = {status:1,'message':'更新成功'};
   }
 
   async destroy() {
     const ctx = this.ctx;
     const id = toInt(ctx.params.id);
-    const feedbackList = await ctx.model.feedbackList.findByPk(id);
-    if (!feedbackList) {
+    const data = await ctx.model.FeedbackList.findByPk(id);
+    if (!FeedbackList) {
       ctx.status = 404;
       return;
     }
-    await feedbackList.destroy();
+    await data.destroy();
     ctx.status = 200;
     ctx.body = {status:1,'message':'删除成功'};
   }
 }
 
-module.exports = feedbackListController;
+module.exports = FeedbackListController;

@@ -3,7 +3,7 @@
 module.exports = app => {
   const { DATE, INTEGER, STRING , TEXT } = app.Sequelize;
 
-  const feedbackList = app.model.define('feedback_list', {
+  const FeedbackList = app.model.define('feedback_list', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     type: {type:INTEGER},
     imgs: {type:STRING(1000)},
@@ -21,5 +21,5 @@ module.exports = app => {
     freezeTableName: true
   });
 
-  return feedbackList;
+  return FeedbackList;
 };
