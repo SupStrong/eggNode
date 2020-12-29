@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE } = app.Sequelize;
+  const { DATE, INTEGER, STRING , TEXT } = app.Sequelize;
 
-  const List = app.model.define('lists', {
+  const Animal_circles = app.model.define('animal_circles', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-    user_id:STRING,
-    title:STRING
+    name: {type:STRING},
+    title:{type:STRING}
   },
   {
     underscored: false,
@@ -14,5 +14,6 @@ module.exports = app => {
     timestamps: false,
     freezeTableName: true
   });
-  return List;
+
+  return Animal_circles;
 };

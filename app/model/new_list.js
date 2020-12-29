@@ -3,19 +3,16 @@
 module.exports = app => {
   const { DATE, INTEGER, STRING , TEXT } = app.Sequelize;
 
-  const Article = app.model.define('articles', {
+  const User_lists = app.model.define('user_lists', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-    title: STRING,
+    a_id: INTEGER,
+    title:STRING,
     author:STRING,
-    group:STRING,
-    type:INTEGER,
-    status:INTEGER,
-    relation:STRING,
-    textarea:TEXT,
-    browse:{type:INTEGER,defaultValue:0},
-    praise:{type:INTEGER,defaultValue:0},
-    collection:{type:INTEGER,defaultValue:0},
-    create_time:DATE
+    create_time:DATE,
+    details:STRING,
+    fabulous:{type:INTEGER,defaultValue:0},
+    read:{type:INTEGER,defaultValue:0},
+    source:STRING,
   },
   {
     underscored: false,
@@ -24,5 +21,5 @@ module.exports = app => {
     freezeTableName: true
   });
 
-  return Article;
+  return User_lists;
 };

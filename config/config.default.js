@@ -66,7 +66,7 @@ module.exports = appInfo => {
     //database configuration 
     client:{
         //host 
-        host:'localhost',
+        host:'127.0.0.1',
         //port 
         port:3307,
         //username 
