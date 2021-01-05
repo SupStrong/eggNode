@@ -29,7 +29,7 @@ class FeedbackListController extends Controller {
     const ctx = this.ctx;
     const data = ctx.request.body;
     data.create_time = time();
-    const data = await ctx.model.FeedbackList.create(data);
+    const FeedbackList = await ctx.model.FeedbackList.create(data);
     ctx.status = 201;
     ctx.body = {data:FeedbackList,status:1,message:'创建成功'};
   }

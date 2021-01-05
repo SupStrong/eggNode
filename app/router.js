@@ -15,7 +15,7 @@ module.exports = app => {
   router.resources('banner', `/banner/`, controller.banner); // 轮播图
   router.resources('animal_details', `/animal_details/`, controller.animalDetails);
   router.resources('animal_circles', `/animal_circles/`, controller.animalCircles);
-  router.resources('animal_protect', `/animal_protect/`, controller.animalProtect);
+  router.resources('animal_protect', `/animal_protect/`, controller.animalProtect); // 保护机构
   router.resources('feedback_list', `/feedback_list/`, controller.feedbackList);
   router.resources('about_lists', `/about_lists/`, controller.aboutLists);
   router.resources('new_list', `/new_list/`, controller.newList);
