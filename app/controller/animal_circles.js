@@ -10,8 +10,8 @@ function toInt(str) {
 class animalCircleController extends Controller {
   async index() {
     const ctx = this.ctx;
-    const page = ctx.query.page;
-    const limit = ctx.query.limit;
+    const page = ctx.query.page || 1;
+    const limit = ctx.query.limit || 100;
     const query = {
       offset: toInt(limit) * toInt(page - 1),
       limit: toInt(limit)
